@@ -17,7 +17,7 @@
       = stylesheet css_file
 
     / Modernizr (provided for legacy browsers)
-    = script "deck.js/support/modernizr.custom.js"
+    = script "deck.js/modernizr.custom.js"
 
   %body{ :class => "deck-container keydown" }
     - slides.each do |slide|
@@ -37,7 +37,7 @@
       %span.deck-status-total
 
     / jQuery & deck.js
-    = script "deck.js/support/jquery.1.6.4.min.js"
+    = script "deck.js/jquery-1.7.2.min.js"
     = script "deck.js/core/deck.core.js"
 
     / deck.js extension JS files
