@@ -67,5 +67,11 @@ describe Keydown do
       File.exist?("#{project_dir}/css/default.css").should be_true
     end
 
+    it "should copy Gemfile, Guardfile, config.ru" do
+      File.exist?("#{project_dir}/Gemfile").should be_true
+      File.exist?("#{project_dir}/Guardfile").should be_true
+      File.exist?("#{project_dir}/config.ru").should be_true
+    end
+
   end
 end
