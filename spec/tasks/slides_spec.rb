@@ -147,6 +147,23 @@ describe Keydown, "`slides`" do
       it_should_behave_like "generating a presentation file"
 
     end
+
+    describe "should respect a custom filename" do
+      before(:each) do
+        capture_output do
+          Dir.chdir project_dir do
+            #t = @thor
+            #t.options = {:output => "foo.html"}
+            @thor.invoke Keydown::Tasks, ["slides", "with_title.md"], {:output => "foo.html"}
+            @file = File.new('foo.html')
+            @doc = Nokogiri(@file)
+          end
+        end
+      end
+
+      it_should_behave_like "generating a presentation file"
+
+    end
   end
 
   describe "with directory tree with custom CSS & JS" do

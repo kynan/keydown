@@ -4,8 +4,8 @@ require 'compass'
 module Keydown
   class Tasks < Thor
 
-    desc "slides FILE", "Convert a Keydown FILE into an HTML presentation"
-
+    desc "slides FILE.md", "Convert a Keydown FILE.md into a FILE.html presentation"
+    method_option :output, :aliases => "-o", :desc => "Specify different output file name"
     def slides(file)
 
       file += '.md' unless file.match(/\.md$/)
@@ -34,7 +34,7 @@ module Keydown
         Sass::Engine.new(scss, :syntax => :scss, :load_paths => [compass_path]).render
       end
 
-      presentation = file.gsub('md', 'html')
+      presentation = options[:output] || file.gsub('md', 'html')
 
       create_file presentation, :force => true do
         slide_deck.to_html
