@@ -41,7 +41,7 @@
     = script "deck.js/core/deck.core.js"
 
     / deck.js extension JS files
-    - extensions_js_files.each do |js_file|
+    - extensions_js_files.sort.each do |js_file|
       = script js_file
 
     / your custom JS here, including call to initialize deck.js-codemirror
